@@ -10,9 +10,9 @@ export default class Floor
         this.resources = this.experience.resources
 
         this.setGeometry()
-        //this.setTextures()
+       // this.setTextures()
         this.setMaterial()
-        //this.setMesh()
+        this.setMesh()
     }
 
     setGeometry()
@@ -40,14 +40,14 @@ export default class Floor
     {
         this.material = new THREE.MeshStandardMaterial({color:0xffffff})
         //this.material = new THREE.ShadowMaterial({color:0x720000})
-        this.material.opacity = 0.4;
+        //this.material.opacity = 0.4;
     }
 
     setMesh()
     {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
         this.mesh.rotation.x = - Math.PI * 0.5
-        this.mesh.position.set(0,-2,0)
+        this.mesh.position.set(0,-7.8,0)
         this.mesh.receiveShadow = true
         this.scene.add(this.mesh)
     }

@@ -81,8 +81,8 @@ export default class Cat
       
         this.model = this.resource.scene
         
-        this.model.scale.set(10, 10, 10)
-        this.model.position.set(0,-2,0)
+        this.model.scale.set(15, 15, 15)
+        this.model.position.set(-1.2,-2.8,-2)
 
         this.player.add(this.model)
         this.scene.add(this.player)

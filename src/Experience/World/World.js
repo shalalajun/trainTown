@@ -3,7 +3,7 @@ import Experience from '../Experience.js'
 import Environment from './Environment.js'
 import Floor from './Floor.js'
 import Cat from './Cat.js'
-import Tree from './Tree.js'
+import Train from './Train.js'
 import CharacterControl from '../Utils/CharacterControl.js'
 
 export default class World
@@ -12,9 +12,7 @@ export default class World
     {
         this.experience = new Experience()
         this.charactotContol = new CharacterControl()
-
         this.camera = this.experience.camera
-       
         this.scene = this.experience.scene
         this.resources = this.experience.resources
        
@@ -25,7 +23,7 @@ export default class World
             // Setup
             this.floor = new Floor()
             this.cat = new Cat()
-            this.tree = new Tree()
+            this.train = new Train()
             this.environment = new Environment()
         })
 
@@ -39,25 +37,11 @@ export default class World
         if(this.cat){
             this.cat.update()        
         }
-       
+
+        if(this.train)
+        {
+            this.train.update()
+        }
        
     }
-
-    // characterUpdate()
-    // {
-    //     this.raycaster.setFromCamera(new THREE.Vector2(this.characterControl.pointer.x,this.characterControl.pointer.y), this.camera.instance)
-
-    //     const direction = this.raycaster.ray.direction
-
-    //     const distance = this.raycaster.ray.origin.distanceTo(this.cat.model.position);
-       
-    //     const movement = direction.clone().multiplyScalar(distance)
-
-    //     this.cat.model.position.add(movement)
-
-    //     this.cat.model.rotation.setFromVector3(direction);
-
-    //     console.log(movement)
-       
-    // }
 }

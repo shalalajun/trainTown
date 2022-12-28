@@ -14,10 +14,10 @@ export default class Tree
       
         // Resource
       
-        this.resource = this.resources.items.treeModel
+        this.resource = this.resources.items.trainModel
         
 
-        console.log(this.catTex)
+      
 
         this.setModel()
       

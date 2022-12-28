@@ -42,7 +42,7 @@ export default class Renderer
         this.instance.physicallyCorrectLights = true
         this.instance.outputEncoding = THREE.sRGBEncoding
         this.instance.toneMapping = THREE.ACESFilmicToneMapping
-        this.instance.toneMappingExposure = 1.36
+        this.instance.toneMappingExposure = 2
         this.instance.shadowMap.enabled = true
         this.instance.shadowMap.type = THREE.PCFSoftShadowMap
         //this.instance.setClearColor('#211d20')

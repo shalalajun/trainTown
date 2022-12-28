@@ -14,11 +14,14 @@ export default class Environment
         this.camera = this.scene.camera
         this.sunLight = new THREE.DirectionalLight('#ffffff', 2)
         this.sunLight.castShadow = true
-        this.sunLight.shadow.camera.far = 150
+        this.sunLight.shadow.camera.near = -30
+        this.sunLight.shadow.camera.far = 80
         this.sunLight.shadow.mapSize.set(4096, 4096)
         this.sunLight.shadow.normalBias = 0.1
-        this.sunLight.shadow.camera.left = 20;
-        this.sunLight.shadow.camera.right = -20;
+        this.sunLight.shadow.camera.left = 50;
+        this.sunLight.shadow.camera.top = 20;
+        this.sunLight.shadow.camera.right = -50;
+        this.sunLight.shadow.camera.bottom = -20;
        // this.light.position.setFromSphericalCoords(250,phi,theta)
         this.scene.add(this.sunLight)
 
@@ -77,7 +80,7 @@ export default class Environment
             const phi = THREE.MathUtils.degToRad( 90 - this.effectController.elevation );
             const theta = THREE.MathUtils.degToRad( this.effectController.azimuth );
              console.log(phi)
-            this.sun.setFromSphericalCoords( 1, phi, theta );
+            this.sun.setFromSphericalCoords( 10, phi, theta );
             if(phi>=1.43){
                 this.sunLight.position.setFromSphericalCoords(5,1.43,theta)
             }else{
