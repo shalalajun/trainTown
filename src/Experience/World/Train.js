@@ -25,7 +25,7 @@ export default class Train
         this.debug = this.experience.debug
         this.renderer = this.experience.renderer
         this.player = new THREE.Group()
-        this.speed = 0.1
+        this.speed = 0.3
 
         this.raycaster = new THREE.Raycaster();
         this.pointer = new THREE.Vector2()

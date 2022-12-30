@@ -25,7 +25,7 @@ export default class Cat
         this.debug = this.experience.debug
         this.renderer = this.experience.renderer
         this.player = new THREE.Group()
-        this.speed = 0.1
+        this.speed = 0.3
         
         this.cameras = []
         
@@ -95,13 +95,14 @@ export default class Cat
 
         this.catMap.onBeforeCompile = (shader) => {
 
-
+            
             shader.vertexShader = shader.vertexShader.replace(
                 
                 "#define STANDARD",
                 `
                 #define STANDARD
                 varying vec3 wPosition;
+                varying vec3 vPosition;
                 `
             )
 
@@ -114,9 +115,25 @@ export default class Cat
                 `
             )
 
+            shader.vertexShader = shader.vertexShader.replace(
+                
+                "void main() {",
+                `
+                void main() {
+                    vPosition = position;
+                `
+            )
 
 
 
+            shader.fragmentShader = shader.fragmentShader.replace(
+                
+                "#define STANDARD",
+                `#define STANDARD
+
+                varying vec3 vPosition;
+                `
+            );
 
             
 
@@ -171,7 +188,7 @@ export default class Cat
         
         this.animation.actions.current = this.animation.actions.idle
         this.animation.actions.current.play()
-
+        this.animation.actions.current.timeScale = 2.2 // 프레임레이트때문에 일부러 변환을 주고있다.
         // Play the action
         this.animation.play = (name) =>
         {
